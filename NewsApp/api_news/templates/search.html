@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style.css' %}" />
+        <title>News</title>
+        
+    </head>
+    <body>
+        <!-- <form method="get" action="/", name="home", id="home">
+            <button type="submit"> Home </button>
+        </form>
+        {% for i in response %}
+        <div>{{i.source.name}} <br> {{i.title}}</div>
+        {% endfor %} -->
+        <div class="main">
+            <h1>NewsApp</h1>
+            <form method="get" action="/home">
+
+                   <button type="submit" class="HomeButton">
+                     <i class="fa fa-search">Home</i>
+                  </button>
+                
+            </form>
+
+            <form method="get" action="/search">
+
+                <button type="submit" class="HomeButton">
+                  <i class="fa fa-search">Refresh</i><input type="hidden" value={{query}}, name="search", id="search">
+               </button>
+             
+         </form>
+
+            <ul class="cards">
+                {% for i in response %}
+              <li class="cards_item">
+                <div class="card">
+                  <div class="card_image"><img src="{{i.image}}"></div>
+                  <div class="card_content">
+                    <h2 class="card_title">{{i.title}}</h2>
+                    <p class="card_text">{{i.description}}</p>
+                    <form action="{{i.url}}">
+                    <button class="btn card_btn">Read More</button>
+                    </form>
+                  </div>
+                </div>
+              </li>
+              {% endfor %}
+
+            </ul>
+          </div>
+    </body>
+</html>

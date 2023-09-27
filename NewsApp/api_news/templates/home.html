@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style.css' %}" />
+        <title>News</title>
+        
+    </head>
+    <body>
+        <div class="main">
+            <h1>NewsApp</h1>
+            <form method="get" action="/search">
+
+            <div class="wrap">
+                <div class="search">
+
+                   <input type="search" class="searchTerm" placeholder="search" aria-label="search"  name="search" id="search">
+                   <button type="submit" class="searchButton">
+                     <i class="fa fa-search"></i>
+                  </button>
+                </div>
+             </div>
+            </form>
+            <form method="get" action="/search">
+
+                <div class="history">
+                    <a>Search Filters: </a>
+                {% for i in filters %}
+                  <i class="fa fa-search"></i><input type="submit" value={{i}} name="search" id="search">
+
+               {% endfor %}
+             </div>
+                </form>
+                <form method="get" action="/history">
+                    <div class="history">
+                        <a>Search History: </a>
+                    {% for i in history %}
+                    <button type="submit" class="historyButton">
+                      <i class="fa fa-search">{{i.keyword}}</i><input type="hidden" value={{i.id}}, name="query_id", id="query_id">
+
+                   </button>
+                   {% endfor %}
+                 </div>
+             </form>
+            
+            <ul class="cards">
+                {% for i in response %}
+              <li class="cards_item">
+                <div class="card">
+                  <div class="card_image"><img src="{{i.image}}"></div>
+                  <div class="card_content">
+                    <h2 class="card_title">{{i.title}}</h2>
+                    <p class="card_text">{{i.description}}</p>
+                    <form action="{{i.url}}">
+                        <button class="btn card_btn">Read More</button>
+                    </form>
+                  </div>
+                </div>
+              </li>
+              {% endfor %}
+
+            </ul>
+          </div>
+          
+    </body>
+</html>

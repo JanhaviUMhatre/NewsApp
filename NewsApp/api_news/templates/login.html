@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'style.css' %}" />
+        <title>News</title>
+        
+    </head>
+    <body>
+<div class="container">
+
+    <form action="/home" method="post">
+        {% csrf_token %}
+        <div class="form-group clearfix">
+            <label for="username" class="col-md-4 control-label text-right">Username:</label>
+            <div class="col-md-6">
+                <input name="email_address" value="" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group clearfix">
+            <label for="password" class="col-md-4 control-label text-right">Password:</label>
+            <div class="col-md-6">
+                <input name="password" type="password" class="form-control" />
+            </div>
+        </div>
+        <form action="/home">
+        <div class="col-md-6 col-md-offset-4">
+            <button type="submit" class="historyButton"><i>login</i></button>
+        </div>
+    </form>
+             
+    </form>
+</div>
+</body>
+</html>
