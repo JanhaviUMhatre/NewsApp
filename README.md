@@ -3,6 +3,7 @@
 NewsApp is a dashboard where logged in user can view top news. Also search with previous history as well as search with keyword feature is provide.
 This project is using data provided by newsapi (https://newsapi.org/).
 
+- Python, Django, sqlite, html, css, jinja
 
 ## Step by step guide to run project
 
